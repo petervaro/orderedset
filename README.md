@@ -34,7 +34,7 @@ $ sudo python3 setup.py install
 Usage
 -----
 
-Process `str` to `dict`:
+Create an `OrderedSet` of various items and print it:
 
 ```python
 from orderedset import OrderedSet
@@ -54,3 +54,8 @@ OrderedSet(['hello', True, None, 3.14])
 2 => None
 3 => 3.14
 ```
+
+> ***NOTE:*** One very important difference is, that an `OrderedSet` can only
+> be compared to another `OrderedSet` via the `==` and `!=` operators. Also
+> two `OrderedSet`s are equal if and only if both have the exact same items and
+> their orders are the same as well.
