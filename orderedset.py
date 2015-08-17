@@ -16,11 +16,7 @@ class OrderedSet(OrderedDict):
     Build an ordered collection of unique elements.
     """
 
-    __DISABLED = {'__setitem__',
-                  '__getitem__',
-                  '__delitem__',
-                  '__reversed__',
-                  'items',
+    __DISABLED = {'items',
                   'keys',
                   'values',
                   'move_to_end',
@@ -35,6 +31,21 @@ class OrderedSet(OrderedDict):
         """Inherited class guard."""
         raise AttributeError('{.__class__.__name__!r} object has no '
                              'attribute {!r}'.format(self, attribute))
+
+
+    #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+    def __getitem__(self, *args, **kwargs):
+        """Inherited class guard."""
+        raise TypeError('{.__class__.__name__!r} object does '
+                        'not support indexing'.format(self))
+
+
+    #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
+    def __delitem__(self, *args, **kwargs):
+        """Inherited class guard."""
+        raise TypeError('{.__class__.__name__!r} object does '
+                        'not support item delition'.format(self))
+
 
     #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
     def __getattribute__(self, attribute):
@@ -324,7 +335,7 @@ class OrderedSet(OrderedDict):
 #------------------------------------------------------------------------------#
 if __name__ == '__main__':
     tu1 = 'hello', 'world', 'how', 'are', 'you?'
-    tu2 = 'good', 'bye', 'world', 'you', 'silly'
+    tu2 = 'good', 'bye', 'silly', 'old', 'world'
 
     # Regular sets
     rs1 = set(tu1)

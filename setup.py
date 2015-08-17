@@ -6,7 +6,7 @@
 from distutils.core import setup
 
 setup(name         = 'orderedset',
-      version      = '0.1.0',
+      version      = '0.1.15',
       description  = 'Pure Python OrderedSet implementation built '
                      'on top of collections.OrderedDict',
       author       = 'Peter Varo',
